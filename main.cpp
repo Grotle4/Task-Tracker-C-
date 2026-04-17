@@ -10,6 +10,21 @@ string add_to_list(string parameter){ //vector<string> command_list){
         return 0;
 }
 
+int find_index(string index, vector<string> &command_list){
+    int idx_num = stoi(index);
+    for (int i = 0; i < command_list.size(); i++){
+        if (idx_num <= command_list.size()){
+            if (i + 1== idx_num){
+                cout << "Correct index found: " << i;
+            }
+        }
+        else{
+            cout << "This ID does not exist in the list." << endl;
+        }
+    }
+    return 0;
+}
+
 
 string check_command(string command, string parameter, vector<string> &command_list){
     cout << "Command you entered is: " << command << endl;
@@ -24,10 +39,13 @@ string check_command(string command, string parameter, vector<string> &command_l
     else if (command == "update"){
         cout << "This is a valid command" << endl;
         cout << "command you entered is: " << command << endl;
+        find_index(parameter, command_list);
     }
     else if (command == "delete"){
         cout << "This is a valid command" << endl;
         cout << "command you entered is: " << command << endl;
+        int num = stoi(parameter);
+        find_index(parameter, command_list);
     }
     else{
         cout << "This is not a valid command";
@@ -38,6 +56,9 @@ string check_command(string command, string parameter, vector<string> &command_l
 }
 
         
+
+
+
 
 int main(){
     vector<string> command_list;
